@@ -1,0 +1,203 @@
+/* Global reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container for the entire app */
+.min-h-screen {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f3f4f6; /* Gray-100 equivalent */
+}
+
+/* Form container */
+.bg-white {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 28rem; /* 448px, equivalent to max-w-md */
+}
+
+/* Form title */
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #4f46e5; /* Indigo-600 equivalent */
+}
+
+/* Subtitle */
+.text-sm.text-gray-500 {
+  font-size: 0.875rem;
+  color: #6b7280; /* Gray-500 equivalent */
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Message styles (success/error) */
+.bg-green-100 {
+  background-color: #dcfce7; /* Green-100 equivalent */
+  color: #15803d; /* Green-700 equivalent */
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  border: 1px solid #86efac; /* Green-300 equivalent */
+}
+
+.bg-red-100 {
+  background-color: #fee2e2; /* Red-100 equivalent */
+  color: #b91c1c; /* Red-700 equivalent */
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  border: 1px solid #f87171; /* Red-300 equivalent */
+}
+
+/* Fade-in animation for messages */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Form spacing */
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+/* Form labels */
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  color: #374151; /* Gray-700 equivalent */
+  display: block;
+}
+
+/* Form inputs */
+input, textarea, select {
+  margin-top: 0.25rem;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db; /* Gray-300 equivalent */
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #6366f1; /* Indigo-500 equivalent */
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2); /* Indigo-500 with opacity */
+  transform: scale(1.01); /* Subtle scale effect on focus */
+}
+
+/* Placeholder styles */
+input::placeholder, textarea::placeholder {
+  color: #9ca3af; /* Gray-400 equivalent */
+}
+
+/* Textarea specific */
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Grid for city/district */
+.grid {
+  display: grid;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  background-color: #4f46e5; /* Indigo-600 equivalent */
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button:hover:not(:disabled) {
+  background-color: #4338ca; /* Indigo-700 equivalent */
+  transform: translateY(-1px); /* Subtle lift effect */
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.5); /* Indigo-600 with opacity */
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Clear button */
+button.bg-gray-500 {
+  background-color: #6b7280; /* Gray-500 equivalent */
+}
+
+button.bg-gray-500:hover:not(:disabled) {
+  background-color: #4b5563; /* Gray-600 equivalent */
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid #ffffff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-right: 0.5rem;
+}
+
+/* Error text for inline validation */
+.text-red-600 {
+  color: #dc2626; /* Red-600 equivalent */
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .bg-white {
+    padding: 1.5rem;
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: 1fr; /* Stack city/district on small screens */
+  }
+}
